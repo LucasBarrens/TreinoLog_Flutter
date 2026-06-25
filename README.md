@@ -1,73 +1,53 @@
-# TreinoLog - Flutter
+# TreinoLog
 
-Transcrição funcional do app TreinoLog de SwiftUI para Flutter. Aplicação local-first para registro e acompanhamento de treinos.
+A local-first gym workout tracker app built with Flutter. Port of the original SwiftUI/SwiftData iOS app.
 
-## 🎯 Objetivo
+## Screenshots
 
-Manter a funcionalidade do app original em Swift/SwiftData, portando para Flutter com persistência local via SQLite.
+> Coming soon
 
-## ✨ Funcionalidades Previstas
+## Features
 
-- ✅ Criar e gerenciar templates de treinos
-- ✅ Registrar sessões de treino
-- ✅ Log de séries (peso, reps, esforço)
-- ✅ Timer de descanso entre séries
-- ✅ Histórico de treinos
-- ✅ Sugestão de progressão
-- ✅ Cálculo de volume total
-- 🚧 (Em desenvolvimento)
+- Create and manage workout templates
+- Log training sessions with sets, weight, reps and effort
+- Rest timer between sets
+- Full workout history
+- Progression suggestions based on previous sessions
+- Total volume calculation per session
+- Progress charts per exercise
+- Backup / restore via file export
+- No cloud required — all data stored locally in SQLite
 
-## 📦 Dependências
+## Tech Stack
 
-- `sqflite`: Persistência local em SQLite
-- `path`: Gerenciamento de paths
-- `intl`: Internacionalização (pt_BR)
-- `uuid`: Geração de UUIDs
+| Layer | Technology |
+|---|---|
+| Framework | Flutter |
+| State management | [Riverpod](https://riverpod.dev/) |
+| Local storage | [sqflite](https://pub.dev/packages/sqflite) (SQLite) |
+| Charts | [fl_chart](https://pub.dev/packages/fl_chart) |
+| Language | Dart |
 
-## 🚀 Como Executar
+## Getting Started
 
 ```bash
-# Instalar dependências
+# Clone the repo
+git clone https://github.com/LucasBarrens/TreinoLog_Flutter.git
+cd TreinoLog_Flutter
+
+# Install dependencies
 flutter pub get
 
-# Executar app
+# Run
 flutter run
-
-# Análise de código
-flutter analyze
-
-# Testes
-flutter test
 ```
 
-## 📁 Estrutura
+Requires Flutter SDK ≥ 3.x. Install it at [flutter.dev](https://flutter.dev/docs/get-started/install).
 
-Ver `STRUCTURE.md` para detalhes completos da estrutura de diretórios e modelos.
+## Project Structure
 
-## 🔒 Local-First
+See [STRUCTURE.md](STRUCTURE.md) for a detailed breakdown of directories and data models.
 
-Todos os dados são armazenados localmente em SQLite. Nenhuma sincronização com cloud. Pronto para ser estendido com Firestore/Supabase depois se necessário.
+## License
 
-## ⚠️ Limitações Atuais
-
-- Sem state management avançado (Provider/Riverpod) - usar FutureBuilder por enquanto
-- Sem telas UI implementadas ainda
-- Sem persistência de timer na sessão
-- Sem backup/export de dados
-
-## 📝 Status
-
-**v1.0.0-alpha**
-- [x] Estrutura de modelos
-- [x] Database service
-- [x] Seed data
-- [x] Utils (volume, formatting, etc)
-- [x] Análise lint
-- [ ] Telas principais
-- [ ] State management
-- [ ] Widgets reutilizáveis
-- [ ] Tests
-
-## 🔗 Referência
-
-Mapeamento do app original SwiftUI para Flutter em `../TreinoLog/` (projeto macOS/iOS).
+MIT — see [LICENSE](LICENSE).
