@@ -1,0 +1,211 @@
+TreinoLog_Flutter/
+│
+├── 📄 pubspec.yaml                      ✅ Dependências (sqflite, uuid, intl, path)
+├── 📄 analysis_options.yaml              ✅ Lint rules configuradas
+├── 📄 .metadata                          ✅ Flutter metadata
+├── 📄 .gitignore                         ✅ Git ignore rules
+│
+├── 📚 README.md                          ✅ Documentação principal
+├── 📚 STRUCTURE.md                       ✅ Estrutura detalhada
+├── 📚 IMPLEMENTATION_SUMMARY.md           ✅ Sumário de implementação
+├── 📚 PROJECT_STRUCTURE.txt              ✅ Este arquivo
+│
+└── lib/
+    │
+    ├── main.dart                         ✅ Entry point + HomeScreen básica
+    │
+    ├── models/                           ✅ MODELOS IMPLEMENTADOS
+    │   ├── enums.dart                    ✅ EffortType, ExerciseStatus
+    │   ├── workout_template.dart         ✅ WorkoutTemplate
+    │   ├── exercise_template.dart        ✅ ExerciseTemplate
+    │   ├── workout_session.dart          ✅ WorkoutSession
+    │   ├── exercise_log.dart             ✅ ExerciseLog
+    │   ├── set_log.dart                  ✅ SetLog
+    │   └── index.dart                    ✅ Re-exports
+    │
+    ├── services/                         ✅ SERVIÇOS IMPLEMENTADOS
+    │   ├── database_service.dart         ✅ SQLite CRUD (completo)
+    │   ├── seed_data_service.dart        ✅ Dados iniciais (4 treinos)
+    │   └── index.dart                    ✅ Re-exports
+    │
+    ├── utils/                            ✅ UTILITIES IMPLEMENTADOS
+    │   ├── exercise_key.dart             ✅ Normalização de nomes
+    │   ├── rep_range.dart                ✅ Parser de rep range
+    │   ├── volume_calculator.dart        ✅ Cálculos de stats
+    │   ├── formatting.dart               ✅ Formatação de peso
+    │   └── index.dart                    ✅ Re-exports
+    │
+    ├── screens/                          🚧 VAZIO (pronto para telas)
+    │   └── .gitkeep                      (placeholder)
+    │
+    ├── widgets/                          🚧 VAZIO (pronto para widgets)
+    │   └── .gitkeep                      (placeholder)
+    │
+    └── repositories/                     🚧 VAZIO (pronto para repos)
+        └── .gitkeep                      (placeholder)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📊 ESTATÍSTICAS
+
+Arquivos criados:           22
+Linhas de código Dart:      ~1500
+Linhas de documentação:     ~800
+
+✅ Implementado:
+  • 5 modelos principais
+  • 2 enums
+  • 1 database service (CRUD completo)
+  • 1 seed data service (4 treinos padrão)
+  • 4 utilities (exerciseKey, repRange, volume, formatting)
+  • 1 HomeScreen básica
+  • Documentação completa
+
+❌ Não implementado (Fase 2+):
+  • Telas principais (Pre-workout, Execution, History)
+  • Widgets reutilizáveis (Cards, Editors, Timer)
+  • State management (Provider/Riverpod)
+  • Repositories pattern
+  • Tests unitários e integração
+  • Persistência de timer
+  • Backup/Export
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🗂️ MODELOS IMPLEMENTADOS
+
+WorkoutTemplate
+├── id: String (UUID)
+├── name: String
+└── order: int
+
+ExerciseTemplate
+├── id: String (UUID)
+├── name: String
+├── exerciseKey: String (normalizado)
+├── workoutName: String (FK)
+├── order: int
+├── defaultRepRange: String ("5-9", "8-10", etc)
+└── defaultNotes: String
+
+WorkoutSession
+├── id: String (UUID)
+├── workoutName: String
+├── date: DateTime
+├── finishedAt: DateTime?
+├── notes: String
+├── isFinished: bool
+└── exerciseLogs: List<ExerciseLog> (em memória)
+
+ExerciseLog
+├── id: String (UUID)
+├── exerciseName: String
+├── exerciseKey: String (normalizado)
+├── order: int
+├── notes: String
+├── isCompleted: bool
+├── workoutSessionId: String? (FK)
+├── status: ExerciseStatus (computed)
+└── sets: List<SetLog> (em memória)
+
+SetLog
+├── id: String (UUID)
+├── setNumber: int
+├── weightKg: double
+├── reps: int
+├── note: String
+├── effortType: EffortType
+└── exerciseLogId: String? (FK)
+
+Enums
+├── EffortType (7 valores)
+└── ExerciseStatus (3 valores)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+💾 PERSISTÊNCIA
+
+Database: SQLite via sqflite
+File: treinolog.db
+
+Tabelas:
+  1. workout_templates
+  2. exercise_templates
+  3. workout_sessions
+  4. exercise_logs
+  5. set_logs
+
+Relacionamentos: CASCADE DELETE para integridade
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🧮 UTILITIES
+
+ExerciseKeyUtil
+  └── make(String) → String
+
+RepRange
+  └── parse(String) → RepRange
+
+VolumeCalculator
+  ├── calculateSessionVolume()
+  ├── calculateExerciseVolume()
+  ├── countTotalSets()
+  ├── countStartedExercises()
+  ├── hasRegisteredSets()
+  ├── isRecoverableInProgress()
+  └── formatDuration()
+
+FormattingUtil
+  ├── formatWeight()
+  ├── sanitizeWeightInput()
+  └── parseWeight()
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🌱 SEED DATA
+
+4 treinos padrão implementados:
+  1. Upper A (7 exercícios)
+  2. Lower A (5 exercícios)
+  3. Upper B (8 exercícios)
+  4. Lower B (6 exercícios)
+
+Rep ranges automáticos por tipo de exercício
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🚀 PRÓXIMOS PASSOS
+
+FASE 2: Telas Básicas
+  - [ ] PreWorkoutScreen
+  - [ ] WorkoutExecutionScreen
+  - [ ] ExerciseLogScreen (com timer)
+  - [ ] SavedWorkoutsScreen
+  - [ ] ExerciseHistoryScreen
+  - [ ] Navigation routing
+
+FASE 3: State Management
+  - [ ] Provider setup
+  - [ ] Riverpod integration (opcional)
+  - [ ] State providers para dados
+
+FASE 4: Features
+  - [ ] Histórico detalhado
+  - [ ] Charts de progressão
+  - [ ] Analytics
+  - [ ] Export/Backup
+
+FASE 5: Polish
+  - [ ] Temas
+  - [ ] Dark mode
+  - [ ] i18n completo
+  - [ ] Tests
+
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ STATUS: ESTRUTURA INICIAL COMPLETA
+
+Data: 2026-05-29
+Versão: 1.0.0-alpha
+Pronto para: Fase 2 (Implementação de Telas)

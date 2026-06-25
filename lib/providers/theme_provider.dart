@@ -1,0 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final themeProvider = StateProvider<ThemeMode>((ref) => ThemeMode.dark);
+
+final isDarkModeProvider = StateProvider<bool>((ref) {
+  final theme = ref.watch(themeProvider);
+  return theme == ThemeMode.dark;
+});

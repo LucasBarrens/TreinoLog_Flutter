@@ -1,0 +1,68 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COMO INSTALAR O GYMLOG NO ANDROID
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Você vai receber um arquivo chamado GymLog.apk pelo WhatsApp.
+Siga os 4 passos abaixo. Leva uns 2 minutos.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PASSO 1 — Baixar o arquivo
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1) Abra a conversa no WhatsApp onde você recebeu o arquivo.
+2) Toque no arquivo "GymLog.apk".
+3) Toque em "Baixar" (seta para baixo) e espere terminar.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PASSO 2 — Abrir o arquivo
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1) Depois de baixar, toque novamente no arquivo "GymLog.apk".
+2) Se aparecer uma janela perguntando com qual app abrir,
+   escolha "Instalador de pacotes".
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PASSO 3 — Permitir a instalação
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Na primeira vez, o Android vai avisar que o aplicativo
+não veio da Play Store. Isso é normal — siga assim:
+
+1) Vai aparecer uma mensagem do tipo:
+   "Por segurança, seu celular não permite instalar
+   aplicativos desconhecidos desta fonte."
+
+2) Toque em "Configurações" (ou "Permitir esta fonte").
+
+3) Ative a chave "Permitir desta fonte"
+   (fica verde ou azul quando ligada).
+
+4) Volte para a tela anterior (botão "voltar").
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PASSO 4 — Instalar e abrir
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1) Toque em "Instalar".
+2) Espere a barra terminar (uns segundos).
+3) Toque em "Abrir" — pronto, o GymLog está instalado!
+
+O ícone do app vai aparecer no seu menu de apps.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SE APARECER "APP BLOQUEADO" OU "APP NOCIVO"
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Alguns celulares mostram um aviso extra do "Play Protect".
+Não tem problema, é só porque o app não está na Play Store.
+
+1) Toque em "Mais detalhes" ou "Mais informações".
+2) Toque em "Instalar mesmo assim".
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RESUMINHO RÁPIDO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Baixar → Tocar → Permitir fonte → Instalar → Abrir
+
+Qualquer dúvida, é só chamar!
