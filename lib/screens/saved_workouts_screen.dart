@@ -4,6 +4,7 @@ import '../models/index.dart';
 import '../theme/app_theme.dart';
 import '../providers/index.dart';
 import '../utils/index.dart';
+import 'exercise_progress_screen.dart';
 
 class SavedWorkoutsScreen extends ConsumerWidget {
   const SavedWorkoutsScreen({Key? key}) : super(key: key);
@@ -323,42 +324,59 @@ class _SessionDetailsSheet extends StatelessWidget {
               if (log.sets.isEmpty) return const SizedBox.shrink();
               return Padding(
                 padding: const EdgeInsets.only(bottom: 8),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 6,
-                      height: 6,
-                      margin: const EdgeInsets.only(top: 5),
-                      decoration: BoxDecoration(
-                        color: colors.primary,
-                        shape: BoxShape.circle,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(8),
+                  onTap: () {
+                    Navigator.of(context, rootNavigator: true).push(
+                      MaterialPageRoute(
+                        builder: (_) => ExerciseProgressScreen(
+                          exerciseName: log.exerciseName,
+                          exerciseKey: ExerciseKeyUtil.make(log.exerciseName),
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            log.exerciseName,
-                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                  fontWeight: FontWeight.w600,
-                                ),
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: 6,
+                          height: 6,
+                          margin: const EdgeInsets.only(top: 5),
+                          decoration: BoxDecoration(
+                            color: colors.primary,
+                            shape: BoxShape.circle,
                           ),
-                          Text(
-                            log.sets
-                                .map((s) =>
-                                    '${FormattingUtil.formatWeight(s.weightKg)}kg×${s.reps}')
-                                .join('  '),
-                            style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                                  color: colors.onSurfaceVariant,
-                                ),
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                log.exerciseName,
+                                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                              Text(
+                                log.sets
+                                    .map((s) =>
+                                        '${FormattingUtil.formatWeight(s.weightKg)}kg×${s.reps}')
+                                    .join('  '),
+                                style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                                      color: colors.onSurfaceVariant,
+                                    ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                        Icon(Icons.chevron_right_rounded, size: 16, color: colors.onSurfaceVariant),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               );
             }).toList(),
